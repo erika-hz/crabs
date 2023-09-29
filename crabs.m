@@ -7,9 +7,11 @@ function crabs ()
 
   % Initialize captain location,  heading and size
     xCapt   = 1000;
-    yCapt  = 1200;
-    thetaCapt  = -pi/2;
+    yCapt  = 800;
+    thetaCapt  = pi/2;
     sizeCapt  =  50;
+
+
 
   % Draw the captain and initialize graphics handles
 %*********************************************************

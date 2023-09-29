@@ -1,5 +1,5 @@
-function changeMatrix = getTranslation (x-postion, y-postion)
+function changeMatrix = getTranslation (x, y)
 
-changeMatrix = [ 1 , 0 , x-postion ; 0 , 1 , y-postion ; 0 , 0 , 1 ]
+changeMatrix = [ 1 , 0 , x ; 0 , 1 , y ; 0 , 0 , 1 ]
 
 endfunction

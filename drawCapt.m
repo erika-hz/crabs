@@ -13,7 +13,8 @@ function captainGraphics = drawCapt (xCapt , yCapt , thetaCapt , sizeCapt)
 
 
 % TODO : Rotate captain from zero heading to heading thetaCapt
-
+  R = getRotation(thetaCapt);
+  captRotated = R*capt;
 
 % TODO : Shift the captain from (0 , 0) to (xCapt ,  yCapt)
 
@@ -23,7 +24,7 @@ function captainGraphics = drawCapt (xCapt , yCapt , thetaCapt , sizeCapt)
 % then T multiplys by the capt and gives it a new location
 
   T = getTranslation(xCapt,yCapt);
-  capt = T*capt;
+  capt = T*captRotated;
 
 
 
