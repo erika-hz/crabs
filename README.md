@@ -9,3 +9,5 @@ Purpose: The function creates a matrix that represents the Captain character. Th
 Dependencies: None <br>
 Call: capt = getCapt(50) will generate a matrix called capt of size 50  <br>
 Side effects: None <br>
+
+Andrew was HERE!
