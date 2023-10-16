@@ -7,6 +7,6 @@ x = [pointA(1) ; pointB(1)];
 y = [pointA(2) ; pointB(2)];
 
 lineHandle = plot(x,y, color);
-set(lineHandle, "LineWidth", 4)
+set(lineHandle, "LineWidth", 2)
 
 endfunction
