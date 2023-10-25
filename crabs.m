@@ -12,10 +12,22 @@ function crabs ()
     sizeCapt  =  50;
 
   % Initialize crab location, heading and size
-  xCrab = 1000;
-  yCrab = 1200;
-  thetaCrab = -pi/2;
-  sizeCrab = 50;
+    xCrab = 1000;
+    yCrab = 1200;
+    thetaCrab = -pi/2;
+    sizeCrab = 50;
+
+  %initialize jellyfish
+    xJelly = rand*mapWidth;
+    yJelly = 0;
+    thetaJelly = -pi/2;
+    sizeJelly = 25;
+
+  %initialize penguin
+    xPeng = 1000;
+    yPeng = 1000;
+    thetaPeng = pi/2;
+    sizePeng = 25;
 
 
   % Draw the captain and initialize graphics handles
@@ -25,18 +37,41 @@ function crabs ()
 
    captGraphics = drawCapt (xCapt , yCapt , thetaCapt , sizeCapt)
    crabGraphics = drawCrab (xCrab , yCrab , thetaCrab , sizeCrab)
+   jellyGraphics = drawJelly(xJelly,yJelly,thetaJelly,sizeJelly);
+   pengGraphics = drawPeng(xPeng, yPeng, thetaPeng, sizePeng);
 
 %*******************************************************
 
 
-  cmd = "null"; % initial command
- while ( cmd != "Q") % While not quit, read keyboard and respond
-    cmd = kbhit(); % Read the keyboard.
+%     MAIN LOOP      %
+
+
+ while ( 1) % While not quit, read keyboard and respond
+
+
+   % Jelly fish stuff here
+   % erase old jellyfish
+    for i=1:length(jellyGraphics)
+    delete(jellyGraphics(i));
+  endfor
+
+  % move jellyfish
+    [xJelly,yJelly,thetaJelly] = moveJelly(level, xJelly, yJelly,thetaJelly, sizeJelly, mapHeight,mapWidth);
+
+  % draw jellyfish
+    jellyGraphics = drawJelly(xJelly,yJelly,thetaJelly,sizeJelly);
+
+
+    cmd = kbhit(1); % Read the keyboard.
+  if (cmd == 'Q')
+    break;
+  endif
+
 
   if( cmd == "w" || cmd == "a" || cmd == "d" ) %Captain has moved. Respond.
   % erase old captain
     for i=1:length( captGraphics )
-      set( captGraphics(i), 'Visible', 'off' );
+      delete( captGraphics(i) );
     endfor
   % move capt
   [xCapt, yCapt, thetaCapt] = moveCapt(cmd, xCapt, yCapt, thetaCapt);
@@ -48,7 +83,7 @@ function crabs ()
    elseif (cmd == "i" || cmd == "j" || cmd == "k" || cmd == "l" || cmd ==",") % respond crab moved
   %erase old crab
     for i=1:length(crabGraphics)
-     set(crabGraphics(i),'Visible','off');
+     delete(crabGraphics(i));
     endfor
 
     %move crab
@@ -57,7 +92,13 @@ function crabs ()
    %draw new captain and crab
     crabGraphics = drawCrab(xCrab,yCrab,thetaCrab,sizeCrab)
 
-  endif
+    pengGraphics = drawPeng(xPeng, yPeng, thetaPeng, sizePeng);
+
+
+endif
+
+fflush(stdout);
+pause(0.1)
 
 endwhile
 
