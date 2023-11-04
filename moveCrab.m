@@ -7,6 +7,8 @@ function [xCrab,yCrab,thetaCrab] = moveCrab(cmd,x,y,theta,height,width,size)
 dStep = 50;
 dTheta = 20;
 
+
+% TO BE EDITED TO MAKE THE CRAB MOVE BACK AND FORTH ACROSS THE SCREEN
 %move left
   if (cmd == "j")
     xCrab = x + sin(theta) * dStep;

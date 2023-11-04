@@ -46,8 +46,8 @@ captPt6 = [   captSize; -captSize; 1]; % right shoulder
 
 %head
 captPt7 = [      captSize;  -captSize/2; 1];     %right neck
-captPt8 = [ 2 *captSize;  -captSize/2; 1]; %right top of head
-captPt9 = [ 2*captSize;    captSize/2; 1];  %left top of head
+captPt8 = [ 2 * captSize;  -captSize/2; 1]; %right top of head
+captPt9 = [ 2 * captSize;  captSize/2; 1];  %left top of head
 captPt10 = [   captSize;    captSize/2; 1];   %left neck
 
 %hands
